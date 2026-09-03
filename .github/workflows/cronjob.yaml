@@ -2,7 +2,7 @@ name: Cronjob
 
 on:
   schedule:
-    - cron: 0 3 * * *
+    - cron: "* * * * *"
 
   workflow_dispatch:
     inputs:
@@ -12,6 +12,7 @@ on:
         - apply
         - destroy
         description: Please select apply or destroy
+        default: apply
 
       region:
         type: choice
@@ -21,16 +22,20 @@ on:
         - us-west-1
         - us-west-2
         description: Please select region
+        default: us-east-1
 
       instance_type:
         required: true
         type: string
         description: Please provide instance type
+        default: t3.micro
+
 
       instance_name:
         type: string
         description: Please provide instance name
         required: true
+        default: cron
 
 jobs:
   deploy:

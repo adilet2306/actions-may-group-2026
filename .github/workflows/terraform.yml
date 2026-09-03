@@ -20,12 +20,14 @@ on:
         description: Please select region
 
       instance_type:
+        required: true
         type: string
         description: Please provide instance type
 
       instance_name:
         type: string
         description: Please provide instance name
+        required: true
 
 jobs:
   deploy:
